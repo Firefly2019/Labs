@@ -1,0 +1,87 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<fstream>
+
+using namespace std;
+
+int main(){
+  vector<string> V;
+
+  ifstream fin("vectorData.txt");
+  if(fin.fail()){
+    cerr<<"ERROR Opening File\n";
+    return 1;
+  }
+
+  while(!(fin.eof() || fin.fail())){
+
+    string command, word;
+    int pos;
+
+    fin>>command;
+    if(fin.fail()){
+      break;
+    }
+
+
+    if(command == "Insert"){
+      fin>>word>>pos;
+      V.insert(V.begin()+pos, word);
+    }
+    else if (command == "Delete"){
+      fin>>pos;
+      V.erase(v.begin()+pos);    
+    }
+    else if (command == "Print"){
+      for(int i = 0; i<V.size();i++){
+	cout<<V[i]<<" "; 
+      }
+      cout<<endl;
+
+    
+    } else {
+      break;    
+    }
+
+  }
+
+
+  /*
+  string cmd, word;
+  int pos;
+  fin>>cmd;
+  fin>>pos;
+  find>>word;
+  V.erase(V.begin()+pos);
+  if(V.size()>pos)
+  */
+
+
+  // while(while loop until the input file fail)
+
+  //   read a string called command from the input file
+  //   if the input file has failed, then break from the for Loop
+
+  //   if else if branch to determine which of the 3 commands
+
+  //      delete, then read one more integer from the input file, and delete that position from the vector
+  //       don't forget to check first that that is a valid position within the vector
+
+  //      if insert, then read one more string, which is the word to insert and read one integer and insert that string at that position in the vector
+  //        likewise, don't forget to check that the position to be inserted at is a valid position
+
+  //      if print, then just print the vector with a for Loop
+
+
+
+
+
+
+
+
+
+
+
+  return 0;
+}

@@ -1,0 +1,22 @@
+#ifndef COURSE_H
+#define COURSE_H
+#include<string>
+
+ class Course
+ {
+  private:
+ 
+      long courseNumber;
+      std::string courseName;
+      int numberOfCredits;
+ 
+  public:
+     Course(); 
+     Course(long courseNumber, std:: string courseName, int numberOfCredits);
+     void setCourseNumber(long courseNumber);
+     void setCourseName(std::string courseName);
+     void setNumberOfCredits(int numberOfCredits);
+     void print()const;
+     void printCompact() const;
+ }; 
+ #endif

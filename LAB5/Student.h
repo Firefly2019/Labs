@@ -1,0 +1,38 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+#include<string>
+
+class Student
+
+{
+ private:
+
+  std::string name;
+  const long studentID;
+  std::string major;
+  std::string classification;
+  int units;
+  float tuition;
+  static int totalNumofStudents;
+  static int nextStudentID;
+
+
+ public:
+  Student();
+  Student(const std::string name, const std::string major, 
+          const std::string classification, const int units);
+  ~Student(); 
+  void print() const;
+  void setData();
+
+
+
+
+
+
+
+
+
+
+};
+#endif

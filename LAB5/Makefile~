@@ -1,0 +1,5 @@
+all: Program_1
+
+
+Program_1: Student.h Student.cpp Program_1.cpp
+	g++ Student.cpp Program_1.cpp -o Program_1

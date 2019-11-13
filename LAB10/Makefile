@@ -1,0 +1,10 @@
+all: Program_1
+
+Program_1: Program_1.cpp Node.o LL.o
+	g++ --std=c++11 Program_1.cpp Node.o LL.o -o Program_1
+
+Node.o: Node.h Node.cpp
+	g++ --std=c++11 Node.cpp -c -o Node.o
+
+LL.o: LL.h LL.cpp
+	g++ --std=c++11 LL.cpp -c -o LL.o

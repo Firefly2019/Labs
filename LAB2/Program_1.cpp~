@@ -1,0 +1,124 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<fstream>
+
+using namespace std;
+
+int readData (const string fileName,int A[],int B[],int C[]);
+void printArray(int arr [],int n );
+void  reverseArray(int arr [],int n);
+int longestSequence( int arr [], int n);
+
+int main(){
+  int A [10], B [10], C [10];
+  const  string fileName= "arrays.txt";
+
+  //  if(readData(fileName, A,B,C))return 1;
+  readData(fileName,A,B,C);
+  printArray(A,10);
+  printArray(B,10);
+  printArray(C,10);
+  reverseArray(A,10);
+  for(int i = 0; i <10;i++){
+    cout<<A[i]<<" ";  
+}
+  cout<<endl;
+  cout<<longestSequence(A,10)<<endl;
+  cout<<longestSequence(B,10)<<endl;
+  cout<<longestSequence(C,10)<<endl;
+
+
+
+
+
+
+
+  return 0;
+
+}
+
+
+int readData (const string fileName,int A[],int B[],int C[]){
+  ifstream fin;
+
+  fin.open(fileName.c_str());
+  if(fin.fail()){
+    cerr<<"Error opening file"<<endl;
+    return 1; // want to end
+  }
+  for(int i = 0; i<10;i++ ){
+    fin>>A[i];
+  }
+  for(int i = 0; i<10;i++ ){
+    fin>>B[i];
+  }
+  for(int i = 0; i<10;i++ ){
+    fin>>C[i];
+  }
+
+  if(fin.fail()){
+    cerr<<"Error reading file";
+    return 1;
+  }
+
+  return 0;
+}
+
+
+void printArray(int arr [],int n ){
+
+
+  for (int i = 0; i<n; i++){
+
+    cout<< arr[i]<<" ";
+  }
+  cout<<endl;
+}
+
+
+void  reverseArray(int arr [],int n){
+
+  // 1 2 3 4 5
+  // 5 4 3 2 1
+  // 0 1 2 3 4
+  // n=5, en=2
+
+  // efffectiven  i from 0 to en = n/2
+  // i=0  swaps with n-i-1
+  //    left to temp, right to left, temp to right
+  //     temp=left     left = right    right=temp
+  for(int i = 0; i <n/2; i++){
+    int temp=arr[i];
+    arr[i]=arr[n-i-1];
+    arr[n-i-1]=temp;
+
+  }
+
+
+}
+
+int longestSequence( int arr [], int n){
+  int bestSeq=1;
+  int currSeq=1;
+  
+  // 1 2 3
+  // 1 3 5 6
+
+  for(int i = 1; i<n;i++){
+    
+    if (arr[i] ==arr[i-1]){
+    }
+    else if (arr[i]==arr[i-1]+1) { /// a,b   a+1==b  or  a==b-1
+      currSeq+=1;
+      if(currSeq>bestSeq){
+	bestSeq=currSeq;
+      }
+
+    } else {
+      currSeq=1;
+    }
+  }
+
+  return bestSeq; 
+}

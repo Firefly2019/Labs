@@ -1,0 +1,85 @@
+#include<iostream>
+#include<string>
+#include "RationalNumber.h"
+
+using namespace std;
+
+
+
+RationalNumber::RationalNumber(){
+  numerator=0;
+  denominator=1;
+}
+
+
+RationalNumber::RationalNumber(int &a, int &b)
+ 
+{
+  numerator=a;
+  denominator=b;
+   }
+
+RationalNumber RationalNumber::operator-(RationalNumber &n){
+
+  RationalNumber tmp;
+  tmp.numerator = numerator - n.numerator;
+  tmp.denominator = denominator - n.denominator;
+  return tmp;
+
+}
+
+RationalNumber operator<<(RationalNumber &n1, RationalNumber &n2){
+
+  RationalNumber tmp;
+  tmp.numerator=n1.numerator;
+  tmp.denominator=n1.denominator;
+  cout<< tmp.numerator<< "/"<<tmp.denominator;
+  return tmp;
+}
+
+RationalNumber operator++(RationalNumber &n1, int n){
+
+  RationalNumber tmp;
+  tmp.numerator= n1.numerator + 1; 
+  tmp.denominator= n1.denominator + 1;
+  return tmp;
+
+}
+
+RationalNumber operator>>(RationalNumber &n1, RationalNumber &n2){
+  int numerator;
+  int denominator; 
+
+  RationalNumber tmp;
+  cout<<"please enter an integer for the numerator";
+  cin>>numerator;
+  tmp.setNumerator(numerator);
+  cout<<"please enter an integer for the denominator";
+  cin>>denominator;
+  tmp.setDenominator(denominator);
+  
+  
+  return tmp; 
+
+
+}
+
+
+
+
+int RationalNumber::getNumerator(){
+  return numerator;
+}
+
+int RationalNumber::getDenominator(){
+
+  return denominator;
+}
+
+void RationalNumber::setNumerator(int numerator){
+  this->numerator=numerator;
+}
+
+void RationalNumber::setDenominator(int denominator){
+  this->denominator=denominator;
+}

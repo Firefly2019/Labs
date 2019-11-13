@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include "Course.h"
+
+
+using namespace std;
+
+Course::Course(){
+  courseNumber=0;
+  courseName="";
+  numberOfCredits=0;
+}
+Course::Course(long courseNumber, string courseName, int numberOfCredits){
+  setCourseNumber(courseNumber);
+  setCourseName(courseName);
+  setNumberOfCredits(numberOfCredits);
+
+}
+
+void Course::setCourseNumber(long courseNumber){
+
+  this->courseNumber = courseNumber;
+
+}
+
+void Course::setCourseName( string courseName){
+  this->courseName = courseName;
+}
+
+void Course::setNumberOfCredits(int numberOfCredits){
+  this->numberOfCredits = numberOfCredits;
+}
+
+void Course::print()const{
+  cout<<left<<setw(15)<<"Course Number"<<setw(15)<<"Course Name"<<setw(15)<<"Number of Credits"<<endl;
+  cout<<"----------------------------------------"<<endl;
+
+     
+}
+
+void Course::printCompact()const{
+  cout<<left<<setw(15)<<courseNumber<<setw(15)<<courseName<<setw(15)<<numberOfCredits<<endl;
+ 
+}
+

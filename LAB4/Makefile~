@@ -1,0 +1,4 @@
+all: Program_1
+
+   Program_1: Program_1.cpp;
+	g++ Program_1.cpp -o Program_1;
