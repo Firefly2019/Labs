@@ -1,0 +1,74 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int numChars(string s, char ch);
+int numCharsInner(string s, char ch, size_t positionLast);
+
+int main(){
+
+  string s;
+  char ch;
+ 
+
+  cout<<"enter a string\n";
+  getline(cin, s);
+  cout<<"now enter a character\n";
+  cin>>ch;
+  cout<<"searching "<<s<< " for: "<< ch<<endl;
+  cout<<numChars(s,ch)<<endl;
+ 
+
+
+
+
+
+
+
+
+
+
+  return 0;
+}
+
+int numChars(string s, char ch){
+
+  return numCharsInner(s, ch, 0);
+
+
+}
+
+int numCharsInner(string s, char ch, size_t positionLast){
+ 
+
+  auto positionFound= s.find((ch ), positionLast);
+  auto positionFound2= s.find((ch - 32), positionLast);
+
+
+
+  // string:::npos == positionFound
+  if(positionFound == string::npos && positionFound2 == string::npos ){
+      return 0;
+
+  }
+  else if(positionFound != string::npos || positionFound2 != string::npos){
+     
+    return 1 + numCharsInner(s,ch,positionFound +1); 
+  }
+  else{
+   return 1 + numCharsInner(s,ch,positionFound2 +1); 
+  }
+
+
+
+
+
+
+
+}
+
+
+// Base case: 1 1
+//  Recurse : add the last two
+//  Term    : make it stop

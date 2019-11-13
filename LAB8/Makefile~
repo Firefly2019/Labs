@@ -1,0 +1,7 @@
+all: Program_1 
+
+Program_1: Program_1.cpp P1class.o
+	g++ --std=c++11 Program_1.cpp P1class.o -o Program_1
+
+P1class.o: P1class.h P1class.cpp
+	g++ --std=c++11 P1class.cpp -c -o P1class.o
